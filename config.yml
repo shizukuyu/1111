@@ -1,138 +1,243 @@
 baseURL: "https://shizukuyu.github.io/"
-title: ExampleSite
-paginate: 5
+languageCode: en-ie # zh-cn
+title: Suwen's Blog
 theme: PaperMod
 
+enableInlineShortcodes: true
+enableEmoji: true # allowing using emoji
 enableRobotsTXT: true
+
+hasCJKLanguage: true
+
 buildDrafts: false
 buildFuture: false
 buildExpired: false
 
-googleAnalytics: UA-123-45
+#googleAnalytics: UA-123-45
+
+paginate: 15 # articles per page
 
 minify:
-  disableXML: true
-  minifyOutput: true
+    disableXML: true
+    # minifyOutput: true
+
+permalinks:
+    post: "/:title/"
+    # post: "/:year/:month/:day/:title/"
+
+defaultContentLanguage: en # prefer language
+defaultContentLanguageInSubdir: true
+
+languages:
+    en:
+        languageName: "English🇮🇪"
+        contentDir: content/English
+        weight: 1
+        profileMode:
+            enabled: true
+            title: Suwen Jin
+            subtitle: "Welcome to my site!"
+            # imageUrl: "Avatar.png"
+            imageUrl: "img/selfie.jpeg"
+            imageTitle: Selfie
+            imageWidth: 150
+            imageHeight: 150
+            buttons:
+                - name: About
+                  url: /about/
+                - name: Project
+                  url: /projects/
+                - name: Resume
+                  url: /resume/
+
+        menu:
+            main:
+                - identifier: About
+                  name: About
+                  url: about
+                  weight: 1
+                - identifier: Projects
+                  name: Project
+                  url: projects
+                  weight: 2
+                - identifier: Resume
+                  name: Resume
+                  url: /resume/
+                  weight: 3
+                - identifier: Blog
+                  name: Blogs
+                  url: blog
+                  weight: 4
+                - identifier: Search
+                  name: Search
+                  url: /search/
+                  weight: 5
+
+    zh:
+        languageName: "中文🇨🇳"
+        contentDir: content/Chinese
+        weight: 2
+        profileMode:
+            enabled: true
+            title: 金苏雯
+            subtitle: "欢迎来到我的网站！"
+            # imageUrl: "Avatar.png"
+            imageUrl: "selfie.png"
+            imageTitle: Selfie
+            imageWidth: 150
+            imageHeight: 150
+            buttons:
+                - name: 关于
+                  url: about
+                - name: 博客
+                  url: blog
+                - name: 简历
+                  url: resume
+
+        menu:
+            main:
+                - identifier: About
+                  name: 关于
+                  url: about
+                  weight: 1
+                - identifier: Projects
+                  name: 项目
+                  url: projects
+                  weight: 2
+                - identifier: Resume
+                  name: 简历
+                  url: cv_swj.pdf
+                  weight: 3
+                - identifier: Blog
+                  name: 博客
+                  url: blog
+                  weight: 4
+                - identifier: Comments
+                  name: 留言板
+                  url: comment/comments
+                  weight: 5
+                - identifier: Links
+                  name: 友链
+                  url: links
+                  weight: 6
+                - identifier: Search
+                  name: 搜索
+                  url: search
+                  weight: 7
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON
 
 params:
-  env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: ExampleSite
-  description: "ExampleSite description"
-  keywords: [Blog, Portfolio, PaperMod]
-  author: Me
-  # author: ["Me", "You"] # multiple authors
-  images: ["<link or path of image for opengraph, twitter-cards>"]
-  DateFormat: "January 2, 2006"
-  defaultTheme: auto # dark, light
-  disableThemeToggle: false
+    env: production # to enable google analytics, opengraph, twitter-cards and schema.
+    title: Shizuku
+    author: Shizuku
 
-  ShowReadingTime: true
-  ShowShareButtons: true
-  ShowPostNavLinks: true
-  ShowBreadCrumbs: true
-  ShowCodeCopyButtons: false
-  ShowWordCount: true
-  ShowRssButtonInSectionTermList: true
-  UseHugoToc: true
-  disableSpecial1stPost: false
-  disableScrollToTop: false
-  comments: false
-  hidemeta: false
-  hideSummary: false
-  showtoc: false
-  tocopen: false
+    defaultTheme: dark # defaultTheme: light or dark
+    disableThemeToggle: false
+    DateFormat: "2006-01-02"
+    ShowShareButtons: true
+    ShowReadingTime: true
+    # disableSpecialistPost: true
+    disableScrollToTop: false
+    displayFullLangName: true
+    ShowPostNavLinks: true
+    ShowBreadCrumbs: true
+    ShowCodeCopyButtons: true
+    hideFooter: false # hide foot
+    ShowWordCounts: true
+    VisitCount: true
 
-  assets:
-    # disableHLJS: true # to disable highlight.js
-    # disableFingerprinting: true
-    favicon: "<link / abs url>"
-    favicon16x16: "<link / abs url>"
-    favicon32x32: "<link / abs url>"
-    apple_touch_icon: "<link / abs url>"
-    safari_pinned_tab: "<link / abs url>"
+    ShowLastMod: true
 
-  label:
-    text: "Home"
-    icon: /apple-touch-icon.png
-    iconHeight: 35
+    ShowToc: true
+    TocOpen: true
 
-  # profile-mode
-  profileMode:
-    enabled: false # needs to be explicitly set
-    title: ExampleSite
-    subtitle: "This is subtitle"
-    imageUrl: "<img location>"
-    imageWidth: 120
-    imageHeight: 120
-    imageTitle: my image
-    buttons:
-      - name: Posts
-        url: posts
-      - name: Tags
-        url: tags
+    comments: true
 
-  # home-info mode
-  homeInfoParams:
-    Title: "Hi there \U0001F44B"
-    Content: Welcome to my blog
+    socialIcons:
+        - name: instagram
+          url: "https://www.instagram.com/_kyxie/"
+        - name: github
+          url: "https://github.com/kyxie"
+        - name: linkedin
+          url: "https://www.linkedin.com/in/kunyang-kyrie-xie-557270194/"
+        # - name: qq
+        #   url: "qq.jpg"
+        - name: wechat
+          url: "wechat.jpg"
+        - name: weibo
+          url: "https://weibo.com/u/5687393723"
+        - name: bilibili
+          url: "https://space.bilibili.com/156752850?spm_id_from=333.1007.0.0"
+        - name: strava
+          url: "https://www.strava.com/athletes/62343657"
+        - name: email
+          url: "mailto:kyriexie@outlook.com"
 
-  socialIcons:
-    - name: twitter
-      url: "https://twitter.com/"
-    - name: stackoverflow
-      url: "https://stackoverflow.com"
-    - name: github
-      url: "https://github.com/"
+    assets:
+        favicon: "k-48.png"
+        favicon16x16: "k-48.png"
+        favicon32x32: "k-48.png"
+        apple_touch_icon: "k-48.png"
+        safari_pinned_tab: "k-48.png"
 
-  analytics:
-    google:
-      SiteVerificationTag: "XYZabc"
-    bing:
-      SiteVerificationTag: "XYZabc"
-    yandex:
-      SiteVerificationTag: "XYZabc"
+    label:
+        text: "Home"
 
-  cover:
-    hidden: true # hide everywhere but not in structured data
-    hiddenInList: true # hide on list pages and home
-    hiddenInSingle: true # hide on single page
+    fuseOpts:
+        isCaseSensitive: false
+        shouldSort: true
+        location: 0
+        distance: 1000
+        threshold: 1
+        minMatchCharLength: 0
+        keys: ["title", "permalink", "summary"]
 
-  editPost:
-    URL: "https://github.com/<path_to_repo>/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    twikoo:
+        version: 1.4.11
 
-  # for search
-  # https://fusejs.io/api/options.html
-  fuseOpts:
-    isCaseSensitive: false
-    shouldSort: true
-    location: 0
-    distance: 1000
-    threshold: 0.4
-    minMatchCharLength: 0
-    keys: ["title", "permalink", "summary", "content"]
-menu:
-  main:
-    - identifier: categories
-      name: categories
-      url: /categories/
-      weight: 10
-    - identifier: tags
-      name: tags
-      url: /tags/
-      weight: 20
-    - identifier: example
-      name: example.org
-      url: https://example.org
-      weight: 30
-# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
-pygmentsUseClasses: true
+taxonomies:
+    category: categories
+    tag: tags
+    series: series
+
 markup:
-  highlight:
-    noClasses: false
-    # anchorLineNos: true
-    # codeFences: true
-    # guessSyntax: true
-    # lineNos: true
-    # style: monokai
+    goldmark:
+        renderer:
+            unsafe: true
+    highlight:
+        # anchorLineNos: true
+        codeFences: true
+        guessSyntax: true
+        lineNos: true
+        # noClasses: false
+        style: monokai
+        lineNos: false
+
+privacy:
+    vimeo:
+        disabled: false
+        simple: true
+
+    twitter:
+        disabled: false
+        enableDNT: true
+        simple: true
+
+    instagram:
+        disabled: false
+        simple: true
+
+    youtube:
+        disabled: false
+        privacyEnhanced: true
+
+services:
+    instagram:
+        disableInlineCSS: true
+    twitter:
+        disableInlineCSS: true
